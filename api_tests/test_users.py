@@ -30,3 +30,4 @@ def test_user_created():
 def test_user_delete():
     response = requests.delete(f"{BASE_URL}/users/1")
     assert response.status_code == 200
+    assert response.json == {}
