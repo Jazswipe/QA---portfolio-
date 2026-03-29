@@ -7,7 +7,7 @@ API and UI test automation project.
 - pytest
 - requests
 
-## How tu run
+## How to run
 ```bash
 pip install -r requirements.txt
 pytest api_tests/ -v
