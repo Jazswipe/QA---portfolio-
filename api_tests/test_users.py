@@ -1,4 +1,5 @@
 import requests 
+import pytest
 
 
 def test_get_users(base_url):
@@ -29,3 +30,10 @@ def test_user_delete(base_url):
     response = requests.delete(f"{base_url}/users/1")
     assert response.status_code == 200
     assert response.json() == {}
+@pytest.mark.parametrize("user_id", [1, 2, 3])
+def test_get_single_users(base_url, user_id):
+    response = requests.get(f"{base_url}/users/{user_id}")
+    user = response.json()
+    assert 'username' in user
+    assert response.status_code == 200
+    print(response.json())
